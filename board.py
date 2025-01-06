@@ -9,11 +9,6 @@ class Board():
                 [None, None, None],
                 [None, None, None]
         ]
-        # self.magicNumbers = [ #Needed for basic AI not now
-        #     [2,7,6],
-        #     [9,5,1],
-        #     [4,3,8]
-        # ],
         self.winning_lines = [
             (0, 1, 2),  # Rows
             (3, 4, 5),
@@ -25,15 +20,9 @@ class Board():
             (2, 4, 6)
         ]
         self.squaresFilled = 0
-        self.turn = PLAYER1
         
-    # def __str__(self):
-    #     boardString = ""
-    #     for i in range(3):
-    #         boardString += f'{self.getSquare(i, 0)} | {self.getSqaureValue(i, 1)} | {self.getSqaureValue(i, 2)} \n'
-    #         if i != 2: boardString += '-'*9 + '\n'
-    #     return boardString
-    def isBoardFull(self):    #NOTE 9 ishardcoded should be global constant for different sizes
+   
+    def isBoardFull(self):    #NOTE 9 is hardcoded should be global constant for different sizes
         return self.squaresFilled == 8
     
     def restartBoard(self):

@@ -6,11 +6,10 @@ class GUI(tk.Tk):
 
         self.title("Tic Tac Toe")
         self.Squarebuttons = []
-        self.game = game    #need the reference to the one game instance
+        self.game = game    #need  reference to instance of game
         
         self.generateBoard()
         self.generateRestartButton()
-        self.mainloop()
     
     def generateBoard(self):    #Possibly make 3 a parameter
         for row in range(3):
@@ -27,17 +26,15 @@ class GUI(tk.Tk):
     
     def generateRestartButton(self):
         button = tk.Button(self, width=10, height=3, bg="lightblue", text="Restart"
-                    , command=self.restartGame)
+                    , command=self.game.restartGame)
         button.grid(row=3, column=1, padx=5, pady=5)    #This is botton grid... Remeber Visuals are not the focus
         return button
     
-    def restartGame(self):
-        print(self.Squarebuttons)
+    def restartBoardVisuals(self):
         for button in self.Squarebuttons:
             button.config(text=" ", state="normal")
         self.game.turn = "X"    #Need to reword gross
             
-        
     def processMove(self, row, column):
         self.game.move(row, column)        
         self.reDrawSquare(row, column)
